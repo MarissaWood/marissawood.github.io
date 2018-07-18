@@ -99,17 +99,35 @@ svg {
     margin: 10px;
 }
 
-.project-1 {
-
-}
-
 .skills-tiles-container {
     padding: 50px;
     background-color: lightslategray; 
 }
 
+.project-1 img, .project-2 img { 
+    margin: 10% 10%;
+    max-width: 80%;
+}
+.hover-container {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.hover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.hover-container:hover .hover {
+    display: inline;
+}
+
 .proj1-description {
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #footer {
@@ -136,7 +154,6 @@ ul.icons {
     padding: 10px 10px;
     border: none;
 }
-
 
 .fa {
     padding: 5px;
@@ -173,13 +190,18 @@ ul.icons {
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
     color: grey;
-    padding 10px 20px:
+    padding: 10px 20px;
 }
 
 /* small screens: */
 @media only screen and (max-width: 500px) {
     .skills-tiles-container {
         padding: 0;
+    }
+
+    .project-1 img {
+        max-width: 100%;
+        height: auto;
     }
 }
 /* larger screens */
