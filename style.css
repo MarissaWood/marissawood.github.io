@@ -101,18 +101,20 @@ a {
 }
 
 svg {
-    margin: 10px;
+    margin: 10px 10px;
 }
 
 .skills-tiles-container {
-    padding: 50px;
+    padding: 50px 15%;
     background-color:#c8cfd6; 
 }
 .projects-container {
     background-color: #c8cfd6;
 }
-.project-2 h3, .project-1 h3 {
+h3 {
     color: black;
+    margin-bottom: 0;
+    font-family: 'Orbitron', cursive;
 }
 
 .hover-container img { 
@@ -145,13 +147,14 @@ svg {
 .proj-description {
     color: black;
 }
-
-.proj-description a {
-    color: #3fb1a3;
-    border-bottom: dotted 1px;
+.links {
+    color: black;
+    margin-top: 10px;
 }
 
-
+.proj-description a, .links a {
+    border-bottom: dotted 1px;
+}
 
 #footer {
     background: #E8EEF4;
