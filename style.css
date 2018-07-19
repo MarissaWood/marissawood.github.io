@@ -1,5 +1,5 @@
 html {
-    background: url(./background.jpg);
+    background: url(images/background.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -104,8 +104,12 @@ svg {
     background-color: lightslategray; 
 }
 
-.project-1 img, .project-2 img { 
-    margin: 10% 10%;
+.project-2 h3, .project-1 h3 {
+    margin: 0 0;
+}
+
+.hover-container img { 
+    margin: 10%;
     max-width: 80%;
 }
 .hover-container {
@@ -197,11 +201,6 @@ ul.icons {
 @media only screen and (max-width: 500px) {
     .skills-tiles-container {
         padding: 0;
-    }
-
-    .project-1 img {
-        max-width: 100%;
-        height: auto;
     }
 }
 /* larger screens */
