@@ -70,7 +70,7 @@ a {
 .title_location {
     padding-top: 0;
     padding-bottom: 150px;
-    font-size: 14px;
+    font-size: 16px;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -87,9 +87,10 @@ a {
     padding: 20px 20px;
  }
 
-.aboutMe * {
-    font-family: 'Quattrocento Sans';
-    font-size: 18px;
+.aboutMe p {
+    font-family: 'News Cycle', sans-serif;
+    font-size: 24px;
+    margin: 20px 15%;
 }
 
 .description * {
@@ -110,7 +111,9 @@ svg {
 }
 .projects-container {
     background-color: #c8cfd6;
+    padding-bottom: 20px;
 }
+
 h3 {
     color: black;
     margin-bottom: 0;
