@@ -1,249 +1,149 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 html {
-    background: url(images/background.jpg);
-    background-size: cover;
-    background-position: center;
+  height: 100%;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  background: #eee;
 }
 
 body {
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-body * {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-decoration: none;
-}
-
-.img-circle {
-    margin-top: 120px;
-}
-
-.avatar {
-    border-radius: 50%;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-h1 {
-   font-family: sans-serif;
-   color: white;
-   text-transform: uppercase; 
-   font-weight: bold;
-   padding-bottom: 0;
-   text-shadow:
-   -1px -1px 0 #000,
-   1px -1px 0 #000,
-   -1px 1px 0 #000,
-   1px 1px 0 #000;
-}
-
-h2 {
-    color: white;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
-}
-
-p {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    color: white;
-    opacity: 1;
-    margin: 5px; 
+body.minimized {
+  justify-content: flex-start;
 }
 
 a {
-    text-decoration: none;
-    color:rgb(32, 95, 178);
-    font-weight: bold;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 
-.about, .skills, .resume, .projects, .contact {
-    background: rgba(80, 79, 79, 0.623);
-    padding: 10px;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.title_location {
-    padding-top: 0;
-    padding-bottom: 150px;
-    font-size: 16px;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+.first-container {
+  width: 300px;
+  height: 100px;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s linear;
+}
+.first-container.visible {
+  opacity: 1;
+}
+body.minimized .first-container {
+  top: 70px;
+  opacity: 0;
+}
+.first-container h1 {
+  margin: 0 0 30px 0;
 }
 
-.description {
-    font-family: 'Orbitron', cursive;
-    font-size: 18px;
+.nav {
+  flex: 1 0 100%;
+}
+.nav ul {
+  display: flex;
+  width: 250px;
+}
+.nav ul li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.nav ul li .link {
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  overflow: hidden;
+}
+.nav ul li .link::after {
+  content: "";
+  display: block;
+  margin-top: 1px;
+  margin-left: -100%;
+  width: 100%;
+  height: 2px;
+  background: black;
+  transition: margin-left 0.15s linear;
+}
+.nav ul li .link:hover::after {
+  margin-left: 0;
+}
+.nav ul li .link.portfolio-link::after {
+  background: magenta;
+}
+.nav ul li .link.contact-link::after {
+  background: purple;
+}
+.nav ul li .link.resume-link::after {
+  background: blue;
 }
 
-.aboutMe {
-    padding: 20px 20px;
- }
-
-.aboutMe p {
-    font-family: 'News Cycle', sans-serif;
-    font-size: 24px;
-    margin: 20px 15%;
+.contact {
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  width: 800px;
+}
+.contact ul.icons {
+  cursor: default;
+  padding: 10px 10px;
+  border: none;
+}
+.contact li {
+  list-style-type: none;
+  display: inline;
+  margin: 10px, 20px;
+  color: #464646;
+}
+.contact .fa {
+  padding: 5px;
+  font-size: 35px;
+  width: 35px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+.contact .fa:hover {
+  opacity: 0.7;
+}
+.contact .fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.contact .fa-angellist {
+  background: #ff6600;
+  color: white;
+}
+.contact #emailText,
+.contact #linkedinText,
+.contact #angellistText {
+  display: none;
+}
+.contact .fa-linkedin:hover + #linkedinText {
+  display: inline;
+}
+.contact .fa-angellist:hover + #angellistText {
+  display: inline;
+}
+.contact .fa-envelope:hover + #emailText {
+  display: inline;
+}
+.contact.visible {
+  opacity: 1;
 }
 
-.description * {
-    font-size: 18px;
-}
-
-.tile {
-    padding: 10px 20px;
-}
-
-svg {
-    margin: 10px 10px;
-}
-
-.skills-tiles-container {
-    padding: 50px 15%;
-    background-color:#c8cfd6; 
-}
-.projects-container {
-    background-color: #c8cfd6;
-    padding-bottom: 20px;
-}
-
-h3 {
-    color: black;
-    margin-bottom: 0;
-    font-family: 'Orbitron', cursive;
-}
-
-.hover-container img { 
-    margin: 10%;
-    max-width: 80%;
-}
-.hover-container {
-    position: relative;
-    display: inline-block;
-    margin: 10px;
-}
-
-.hover {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 99;
-}
-
-.hover-container:hover .hover {
-    display: inline;
-}
-
-.proj-description {
-    font-family: 'Lato', sans-serif;
-    margin: 0 10%;
-}
-
-.proj-description {
-    color: black;
-}
-.links {
-    color: black;
-    margin-top: 10px;
-}
-
-.proj-description a, .links a {
-    border-bottom: dotted 1px;
-}
-
-#footer {
-    background: #E8EEF4;
-    color: #7c8081;
-    padding: 20px;
-    text-align: center;
-    opacity: 0.8;
-}
-
-li {
-    list-style-type: none;
-    display: inline;
-    margin: 10px, 20px;
-    color: rgb(70,70,70);
-}
-
-.row {
-    margin-bottom: 0;
-}
-
-ul.icons {
-    cursor: default;
-    padding: 10px 10px;
-    border: none;
-}
-
-.fa {
-    padding: 5px;
-    font-size: 35px;
-    width: 22px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    border-radius: 50%;
-  }
-  
-.fa:hover {
-      opacity: 0.7;
-  }
-  
-.fa-github {
-    background: #333;
-    color: white;
-  }
-  
-  
-.fa-linkedin {
-    background: #007bb5;
-    color: white;
-  }
-  
-  
-.fa-angellist {
-    background: #ff6600;
-    color: white;
-}
-
-.copyright * {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    color: grey;
-    padding: 10px 20px;
-}
-
-/* small screens: */
-@media only screen and (max-width: 500px) {
-    .skills-tiles-container {
-        padding: 0;
-    }
-}
-/* larger screens */
-@media screen and (min-width: 1000px) {
-    svg {
-        margin: 30px;
-    }
-}
-
-@media screen and (min-width: 1600px) {
-    svg {
-      margin: 45px;
-    }
-  }
-  @media screen and (min-width: 1900px) {
-    svg {
-      margin: 70px;
-    }
-  }
+/*# sourceMappingURL=style.css.map */
