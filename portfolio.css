@@ -21,6 +21,7 @@ body * {
 
 .avatar {
     border-radius: 50%;
+    max-width: 45%;
 }
 
 img {
@@ -228,6 +229,23 @@ ul.icons {
 @media only screen and (max-width: 500px) {
     .skills-tiles-container {
         padding: 0;
+    }
+
+    .avatar {
+        max-width: 80%;
+    }
+
+    .img-circle {
+        margin-top: 25px;
+    }
+
+    .title_location {
+        padding-bottom: 20px;
+    }
+
+    .aboutMe p {
+        font-size: 19px;
+        margin: 10px 0;
     }
 }
 /* larger screens */
