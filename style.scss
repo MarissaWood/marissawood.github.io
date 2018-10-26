@@ -2,9 +2,8 @@
 
 $bg: #ECC4F9;
 $section-bg: #ECC4F9;
-$accent: darken(darkseagreen, 10%);
-$contact-bg: $accent;
 $contact-text: white;
+$screen-sm: 500px;
 
 html {
   height: 100%;
@@ -15,6 +14,7 @@ html {
 body {
   margin: 0;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,6 +30,7 @@ a {
   color: black;
   cursor: pointer;
 }
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -37,13 +38,16 @@ ul {
 }
 
 .first-container {
-  width: 300px;
-  height: 100px;
+  width: 40%;
   opacity: 0;  
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all .4s linear;
+  // transition: all .4s linear;
+
+  @media screen and (max-width: 992px){
+    width: 95%;
+  }
   
   &.visible {
     opacity: 1;
@@ -53,22 +57,68 @@ ul {
     top: 70px;
     opacity: 0;
   }
-  
+
   h1 {
     margin: 0 0 30px 0;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 35px;
+    }
   }
 }
+
+.name {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .nav {
   flex: 1 0 100%;
+  width: 250px;
+
+  @media screen and (max-width: $screen-sm) {
+    width: 70%;
+    margin-top: 100px;
+  }
   
   ul { 
     display: flex;
-    width: 250px;
+    width: 100%;
+
+    @media screen and (max-width: $screen-sm) {
+      flex-direction: column;
+      list-style-image: disc;
+    }
 
     li {
       flex: 1;  
       display: flex; 
       justify-content: center;
+
+      & a .fa {
+        margin-right: 30px;
+
+        @media screen and (min-width: 501px) {
+          display: none;
+        }
+
+        &.fa-file-code-o {
+          color: magenta;
+        }
+        &.fa-envelope-o {
+          color: purple;
+        }
+        &.fa-file-pdf-o {
+          color: blue;
+        }
+      }
+
+      @media screen and (max-width: $screen-sm) {
+        justify-content: left;
+
+      }
       
       .link {
         display: block;
@@ -77,17 +127,22 @@ ul {
         font-weight: 700;
         overflow: hidden;
 
+        @media screen and (max-width: $screen-sm) {
+          font-size: 24px;
+          margin-bottom: 30px;
+        }
+
         &::after {
           content: '';
           display: block;
           margin-top: 1px;
-          margin-left: -100%;
+          margin-left: -120%;
           width: 100%;
           height: 2px;
           background: black;
           transition: margin-left .15s linear;    
         }
-        &:hover {
+        &:hover, &:active {
           &::after {
             margin-left: 0;
           }
@@ -116,12 +171,18 @@ ul {
 .contact {
     opacity: 0;
     transition: opacity .2s linear;
-    width: 800px;
+    width: 100%;
                 
     ul.icons {
         cursor: default;
         padding: 10px 10px;
         border: none;
+        margin-left: 40%;
+        margin-top: 10%;
+
+        @media screen and (max-width: 756px) {
+          margin-left: 10%;
+        }   
     }
 
     li {
@@ -132,7 +193,7 @@ ul {
     }
 
     .fa {
-        padding: 5px;
+        padding: 10px;
         font-size: 35px;
         width: 35px;
         text-align: center;
@@ -155,6 +216,11 @@ ul {
         color: white;
     }
 
+    .fa-envelope-o.contact {
+      background: #9C27B0;
+      color: white;
+    }
+
     #emailText,
     #linkedinText,
     #angellistText {
@@ -169,7 +235,7 @@ ul {
     display: inline;
     }
 
-    .fa-envelope:hover + #emailText {
+    .fa-envelope-o:hover + #emailText {
     display: inline;
     }
 

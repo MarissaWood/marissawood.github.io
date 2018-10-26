@@ -9,6 +9,7 @@ html {
 body {
   margin: 0;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,13 +32,16 @@ ul {
 }
 
 .first-container {
-  width: 300px;
-  height: 100px;
+  width: 40%;
   opacity: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.4s linear;
+}
+@media screen and (max-width: 992px) {
+  .first-container {
+    width: 95%;
+  }
 }
 .first-container.visible {
   opacity: 1;
@@ -49,18 +53,65 @@ body.minimized .first-container {
 .first-container h1 {
   margin: 0 0 30px 0;
 }
+@media screen and (max-width: 500px) {
+  .first-container h1 {
+    font-size: 35px;
+  }
+}
+
+.name {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 .nav {
   flex: 1 0 100%;
+  width: 250px;
+}
+@media screen and (max-width: 500px) {
+  .nav {
+    width: 70%;
+    margin-top: 100px;
+  }
 }
 .nav ul {
   display: flex;
-  width: 250px;
+  width: 100%;
+}
+@media screen and (max-width: 500px) {
+  .nav ul {
+    flex-direction: column;
+    list-style-image: disc;
+  }
 }
 .nav ul li {
   flex: 1;
   display: flex;
   justify-content: center;
+}
+.nav ul li a .fa {
+  margin-right: 30px;
+}
+@media screen and (min-width: 501px) {
+  .nav ul li a .fa {
+    display: none;
+  }
+}
+.nav ul li a .fa.fa-file-code-o {
+  color: magenta;
+}
+.nav ul li a .fa.fa-envelope-o {
+  color: purple;
+}
+.nav ul li a .fa.fa-file-pdf-o {
+  color: blue;
+}
+@media screen and (max-width: 500px) {
+  .nav ul li {
+    justify-content: left;
+  }
 }
 .nav ul li .link {
   display: block;
@@ -69,17 +120,23 @@ body.minimized .first-container {
   font-weight: 700;
   overflow: hidden;
 }
+@media screen and (max-width: 500px) {
+  .nav ul li .link {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+}
 .nav ul li .link::after {
   content: "";
   display: block;
   margin-top: 1px;
-  margin-left: -100%;
+  margin-left: -120%;
   width: 100%;
   height: 2px;
   background: black;
   transition: margin-left 0.15s linear;
 }
-.nav ul li .link:hover::after {
+.nav ul li .link:hover::after, .nav ul li .link:active::after {
   margin-left: 0;
 }
 .nav ul li .link.portfolio-link::after {
@@ -95,12 +152,19 @@ body.minimized .first-container {
 .contact {
   opacity: 0;
   transition: opacity 0.2s linear;
-  width: 800px;
+  width: 100%;
 }
 .contact ul.icons {
   cursor: default;
   padding: 10px 10px;
   border: none;
+  margin-left: 40%;
+  margin-top: 10%;
+}
+@media screen and (max-width: 756px) {
+  .contact ul.icons {
+    margin-left: 10%;
+  }
 }
 .contact li {
   list-style-type: none;
@@ -109,7 +173,7 @@ body.minimized .first-container {
   color: #464646;
 }
 .contact .fa {
-  padding: 5px;
+  padding: 10px;
   font-size: 35px;
   width: 35px;
   text-align: center;
@@ -128,6 +192,10 @@ body.minimized .first-container {
   background: #ff6600;
   color: white;
 }
+.contact .fa-envelope-o.contact {
+  background: #9C27B0;
+  color: white;
+}
 .contact #emailText,
 .contact #linkedinText,
 .contact #angellistText {
@@ -139,7 +207,7 @@ body.minimized .first-container {
 .contact .fa-angellist:hover + #angellistText {
   display: inline;
 }
-.contact .fa-envelope:hover + #emailText {
+.contact .fa-envelope-o:hover + #emailText {
   display: inline;
 }
 .contact.visible {
