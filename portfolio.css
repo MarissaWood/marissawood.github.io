@@ -36,6 +36,7 @@ h1 {
    text-transform: uppercase; 
    font-weight: bold;
    padding-bottom: 0;
+   font-size: 3.2rem;
    text-shadow:
    -1px -1px 0 #000,
    1px -1px 0 #000,
@@ -87,17 +88,18 @@ a {
 }
 
 .description {
-    font-family: 'Orbitron', cursive;
+    font-family: 'News Cycle', cursive;
     font-size: 18px;
 }
 
 .aboutMe {
-    padding: 20px 20px;
+    padding: 20px 15px;
  }
 
 .aboutMe p {
-    font-family: 'News Cycle', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
+    font-weight: 200;
     margin: 20px 15%;
 }
 
