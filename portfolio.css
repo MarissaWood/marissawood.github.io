@@ -115,6 +115,10 @@ svg {
     margin: 10px 10px;
 }
 
+.devicon {
+    margin: 35px;
+}
+
 .skills-tiles-container {
     padding: 50px 15%;
     background-color:#c8cfd6; 
