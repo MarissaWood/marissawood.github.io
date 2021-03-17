@@ -284,6 +284,10 @@ ul {
         @media (max-width: 1000px) {
             width: calc(100vw - 100px);
         }
+
+        @media (max-width: 400px) {
+            flex-direction: column-reverse;
+        }
     }
 
     &-bio {
@@ -295,6 +299,12 @@ ul {
         min-width: 300px;
         margin-left: 60px;
         border-radius: 50%;
+
+        @media (max-width: 400px) {
+            margin-left: 0;
+            height: 226.7px;
+            min-width: 200px;
+        }
     }
 
     &-posts-list {
@@ -303,6 +313,10 @@ ul {
 
         @media (max-width: 1000px) {
             width: calc(100vw - 300px);
+        }
+
+        @media (max-width: 400px) {
+            width: calc(100vw - 32px);
         }
     }
 

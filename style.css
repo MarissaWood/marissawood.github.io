@@ -243,6 +243,11 @@ body.minimized .first-container {
     width: calc(100vw - 100px);
   }
 }
+@media (max-width: 400px) {
+  .blog-banner {
+    flex-direction: column-reverse;
+  }
+}
 .blog-bio {
   max-width: 870px;
 }
@@ -252,6 +257,13 @@ body.minimized .first-container {
   margin-left: 60px;
   border-radius: 50%;
 }
+@media (max-width: 400px) {
+  .blog-headshot {
+    margin-left: 0;
+    height: 226.7px;
+    min-width: 200px;
+  }
+}
 .blog-posts-list {
   width: calc(100vw - 600px);
   max-width: 900px;
@@ -259,6 +271,11 @@ body.minimized .first-container {
 @media (max-width: 1000px) {
   .blog-posts-list {
     width: calc(100vw - 300px);
+  }
+}
+@media (max-width: 400px) {
+  .blog-posts-list {
+    width: calc(100vw - 32px);
   }
 }
 .blog-post__preview {
