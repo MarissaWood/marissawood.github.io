@@ -311,4 +311,9 @@ body.minimized .first-container {
   font-size: 12px;
 }
 
+.notes {
+  font-size: 10px;
+  margin-top: 60px;
+}
+
 /*# sourceMappingURL=style.css.map */
