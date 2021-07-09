@@ -197,6 +197,10 @@ body.minimized .first-container {
   background: #007bb5;
   color: white;
 }
+.contact .fa-twitter {
+  background: #00acee;
+  color: white;
+}
 .contact .fa-angellist {
   background: #ff6600;
   color: white;
@@ -207,10 +211,14 @@ body.minimized .first-container {
 }
 .contact #emailText,
 .contact #linkedinText,
+.contact #twitterText,
 .contact #angellistText {
   display: none;
 }
 .contact .fa-linkedin:hover + #linkedinText {
+  display: inline;
+}
+.contact .fa-twitter:hover + #twitterText {
   display: inline;
 }
 .contact .fa-angellist:hover + #angellistText {

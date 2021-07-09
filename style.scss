@@ -226,6 +226,11 @@ ul {
         color: white;
     }
 
+    .fa-twitter {
+        background: #00acee;
+        color: white;
+    }
+
     .fa-angellist {
         background: #ff6600;
         color: white;
@@ -238,6 +243,7 @@ ul {
 
     #emailText,
     #linkedinText,
+    #twitterText,
     #angellistText {
     display: none;
     }
@@ -245,6 +251,10 @@ ul {
     .fa-linkedin:hover + #linkedinText {
     display: inline;
     }
+
+    .fa-twitter:hover + #twitterText {
+        display: inline;
+        }
 
     .fa-angellist:hover + #angellistText {
     display: inline;
