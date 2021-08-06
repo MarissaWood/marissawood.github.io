@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Command Line Shortcuts</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/3c5f7247ef.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="../images/icon.png">
+
+    <meta name="description" content="How to set up command line shortcuts">
+    <meta name="author" content="Marissa Wood">
+    <meta name="keywords" content="blog post, aliases, command line, zsh, git, git configuration">
+</head>
+
+<body>
+    <div class="blog-header--posts">
+        <h1 class="blog-banner-title"><a href="/blog">Marissa Would...</a></h1>
+    </div>
+
+    <div class="blog-post">
+        <div class="blog-post__info">CODE / August 6, 2021</div>
+        <h2 class="blog-post__title">Command Line Shortcuts!</h2>
+        <p class="blog-post__paragraph">
+            As a developer, I spend a fair amount of time in the terminal.  There are commands that I use over and over again that I've decided to set up shortcuts for to make my life easier.
+        </p>
+        <h3 class="blog-post__sub-title">
+            Git Configuration
+        </h3>
+        <p class="blog-post__paragraph">
+            Need to revert your last commit? Normally that's <span class="code-snippet__inline">git reset --soft HEAD~1</span>.  This isn't a difficult command to remember, but I prefer to type out <span class="code-snippet__inline">git undo</span>.  The way I set this up is with my git configuration.  I simply typed the following into my terminal:
+        </p>
+        <p class="code-snippet__block">
+            $ git config --global alias.undo 'reset --soft HEAD~1'
+        </p>
+
+        <p class="blog-post__paragraph">
+            If you want to set up aliases for a specific repository use the <span class="code-snippet__inline">--local</span> option instead of --global.  The default is --local if you don't pass in any option. Other aliases I set up just because I want to type less are:
+        </p>
+        <p class="code-snippet__block">
+            $ git config --global alias.last 'log -1 HEAD --stat'
+            <br>
+            $ git config --global alias.po 'push origin'
+            <br>
+            $ git config --global alias.cm 'commit -m'
+            <br>
+            $ git config --global alias.ch 'checkout'
+            <br>
+            $ git config --global alias.br 'branch'
+            <br>
+            $ git config --global alias.empty-commit 'commit --allow-empty -m'
+            <br>
+        </p>
+
+        <p class="blog-post__paragraph">
+            If you want to see all the git aliases you've set up:
+        </p>
+        <p class="code-snippet__block">
+            $ git config --global -l
+        </p>
+
+        <h3 class="blog-post__sub-title">
+            Aliases outside of git (using the zsh shell)
+        </h3>
+        <p class="blog-post__paragraph">
+            Since 2019, the default macOS shell switched from bash to zsh.  If you use bash, you will want to find a different guide. To set up aliases in zsh you need to edit the .zshrc file in your home directory. I use VSCode as my editor of choice, so to view and edit this file I type the following into my terminal:
+        </p>
+
+        <p class="code-snippet__block">
+            $ code ~./zshrc
+        </p>
+
+        <p class="blog-post__paragraph">
+            Once you have this file open, be very careful with editing! This script runs whenever you start up the shell.  If something is misconfigured it can mess up your ability to use the terminal. At the bottom of this file, start a section for aliases and use the following syntax to set them up:
+        </p>
+
+        <p class="code-snippet__block">
+            <span class="comment"># aliases</span>
+            <br>
+            alias your-custom-alias="some command"
+        </p>
+        <p class="blog-post__paragraph">
+            Some of my aliases are commands that I frequently mistype.
+        </p>
+        <p class="code-snippet__block">
+            <span class="comment"># aliases</span>
+            <br>
+            alias gti="git"
+        </p>
+
+        <p class="blog-post__paragraph">
+            Other aliases are long commands that I want to shorten. For example, if there is a repo that I frequently work on and want a quick command to get there from anywhere, I set up an alias.
+        </p>
+        <p class="code-snippet__block">
+            <span class="comment"># aliases</span>
+            <br>
+            alias repo-name="cd /Path/to/my/repo"
+        </p>
+
+        <p class="blog-post__paragraph">
+            I've also set up aliases to run tests that have a lot of options set up in a specific way.  You can also set up parameterized aliases that take arguments for more complicated commands. You can have multiple params or use a single param multiple times.  I haven't found a reason to set one up myself yet but an example of the syntax to do so is below.
+        </p>
+
+        <p class="code-snippet__block">
+            <span class="comment"># parameterized alias syntax:</span>
+            <br>
+            parameterized-alias-name() {
+            <br>
+            <span class="tab"></span>command $1 ... $2
+            <br>
+            }
+            <br>
+            <br>
+            <span class="comment"># example:</span>
+            <br>
+            foo() {
+            <br>
+            <span class="tab"></span>mkdir $1 && cd $1
+            <br>
+            }
+            <br>
+        </p>
+        <p class="blog-post__paragraph">
+            The example above can be used as: <span class="code-snippet__inline">$ foo new-directory</span> to create a new folder and immediately move into that folder in one command.
+        </p>
+
+        <h3 class="blog-post__sub-title">
+            Don't forget to reload!
+        </h3>
+
+        <p class="blog-post__paragraph">
+            After you are done setting up your aliases in your .zshrc file, save your changes. Every new terminal tab or window will have everything properly loaded, but any sessions that you already have open will need to reload the .zshrc file for your new aliases to work.  You can reload the config with:
+        </p>
+        <p class="code-snippet__block">
+            $ source ~/.zshrc
+        </p>
+        <br>
+    </div>
+
+</body>
+
+</html>

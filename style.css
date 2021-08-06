@@ -324,4 +324,25 @@ body.minimized .first-container {
   margin-top: 60px;
 }
 
+.code-snippet__inline, .code-snippet__block {
+  background: black;
+  color: white;
+  font-family: courier;
+}
+.code-snippet__inline .comment, .code-snippet__block .comment {
+  font-style: italic;
+  color: #1DB954;
+}
+.code-snippet__inline .tab, .code-snippet__block .tab {
+  padding: 0 20px;
+}
+.code-snippet__inline {
+  border-radius: 3px;
+  padding: 2px 4px;
+  margin: 2px 0;
+}
+.code-snippet__block {
+  padding: 20px 30px;
+}
+
 /*# sourceMappingURL=style.css.map */
