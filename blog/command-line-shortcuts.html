@@ -14,19 +14,19 @@
 
     <meta name="description" content="How to set up command line shortcuts">
     <meta name="author" content="Marissa Wood">
-    <meta name="keywords" content="blog, post, aliases, command line, zsh, git">
+    <meta name="keywords" content="blog post, aliases, command line, zsh, git, git configuration">
 </head>
 
 <body>
     <div class="blog-header--posts">
-        <h1 class="blog-banner-title">Marissa Would...</h1>
+        <h1 class="blog-banner-title"><a href="/blog">Marissa Would...</a></h1>
     </div>
 
     <div class="blog-post">
         <div class="blog-post__info">CODE / August 6, 2021</div>
-        <h2 class="blog-post__title">Command line shortcuts!</h2>
+        <h2 class="blog-post__title">Command Line Shortcuts!</h2>
         <p class="blog-post__paragraph">
-            As a developer I spend a fair amount of time in the terminal.  There are commands that I use over and over again that I've decided to set up short cuts for to make my life easier.
+            As a developer, I spend a fair amount of time in the terminal.  There are commands that I use over and over again that I've decided to set up shortcuts for to make my life easier.
         </p>
         <h3 class="blog-post__sub-title">
             Git Configuration
@@ -67,7 +67,7 @@
             Aliases outside of git (using the zsh shell)
         </h3>
         <p class="blog-post__paragraph">
-            Since 2019, the default MacOS shell switched from bash to zsh.  If you use bash, you will want to find a different guide. To set up aliases in zsh you need to edit the .zshrc file in your home directory. I use VSCode as my editor of choice, so to view and edit this file I type the following into my terminal:
+            Since 2019, the default macOS shell switched from bash to zsh.  If you use bash, you will want to find a different guide. To set up aliases in zsh you need to edit the .zshrc file in your home directory. I use VSCode as my editor of choice, so to view and edit this file I type the following into my terminal:
         </p>
 
         <p class="code-snippet__block">
@@ -125,7 +125,18 @@
             <br>
         </p>
         <p class="blog-post__paragraph">
-            The example above can be used as <span class="code-comment__inline">$ foo new-directory</span> to create a new folder and immediately move into that folder in one command.
+            The example above can be used as: <span class="code-snippet__inline">$ foo new-directory</span> to create a new folder and immediately move into that folder in one command.
+        </p>
+
+        <h3 class="blog-post__sub-title">
+            Don't forget to reload!
+        </h3>
+
+        <p class="blog-post__paragraph">
+            After you are done setting up your aliases in your .zshrc file, save your changes. Every new terminal tab or window will have everything properly loaded, but any sessions that you already have open will need to reload the .zshrc file for your new aliases to work.  You can reload the config with:
+        </p>
+        <p class="code-snippet__block">
+            $ source ~/.zshrc
         </p>
         <br>
     </div>
