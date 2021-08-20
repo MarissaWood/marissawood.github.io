@@ -302,6 +302,11 @@ body.minimized .first-container {
   max-width: 700px;
   margin-top: 60px;
 }
+@media (max-width: 815px) {
+  .blog-post {
+    width: calc(100% - 50px);
+  }
+}
 @media (max-width: 400px) {
   .blog-post {
     width: calc(100% - 32px);
@@ -343,6 +348,17 @@ body.minimized .first-container {
 }
 .code-snippet__block {
   padding: 20px 30px;
+}
+
+.terminal-row {
+  display: flex;
+}
+.terminal-row:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.terminal-start {
+  margin-right: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

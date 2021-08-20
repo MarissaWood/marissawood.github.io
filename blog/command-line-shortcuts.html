@@ -34,27 +34,46 @@
         <p class="blog-post__paragraph">
             Need to revert your last commit? Normally that's <span class="code-snippet__inline">git reset --soft HEAD~1</span>.  This isn't a difficult command to remember, but I prefer to type out <span class="code-snippet__inline">git undo</span>.  The way I set this up is with my git configuration.  I simply typed the following into my terminal:
         </p>
-        <p class="code-snippet__block">
-            $ git config --global alias.undo 'reset --soft HEAD~1'
-        </p>
+        <section class="code-snippet__block">
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.undo 'reset --soft HEAD~1'</span>
+            </div>
+        </section>
 
         <p class="blog-post__paragraph">
-            If you want to set up aliases for a specific repository use the <span class="code-snippet__inline">--local</span> option instead of --global.  The default is --local if you don't pass in any option. Other aliases I set up just because I want to type less are:
+            If you want to set up aliases for a specific repository use the <span class="code-snippet__inline">--local</span> option instead of --global.  The default is --local if you don't pass in any option. Other aliases I set up just because I want to type less or I frequently mistype are:
         </p>
-        <p class="code-snippet__block">
-            $ git config --global alias.last 'log -1 HEAD --stat'
-            <br>
-            $ git config --global alias.po 'push origin'
-            <br>
-            $ git config --global alias.cm 'commit -m'
-            <br>
-            $ git config --global alias.ch 'checkout'
-            <br>
-            $ git config --global alias.br 'branch'
-            <br>
-            $ git config --global alias.empty-commit 'commit --allow-empty -m'
-            <br>
-        </p>
+        <section class="code-snippet__block">
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.last 'log -1 HEAD --stat'</span>
+            </div>
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.psuh 'push'</span>
+            </div>
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.po 'push origin'</span>
+            </div>
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.cm 'commit -m'</span>
+            </div>
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.ch 'checkout'</span>
+            </div>
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.br 'branch'</span>
+            </div>
+            <div class="terminal-row">
+                <span class="terminal-start">$</span>
+                <span>git config --global alias.empty-commit 'commit --allow-empty -m'</span>
+            </div>
+        </section>
 
         <p class="blog-post__paragraph">
             If you want to see all the git aliases you've set up:
