@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Feature Flags</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/3c5f7247ef.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="../images/icon.png">
+
+    <meta name="description" content="What are feature flags and why should you care?">
+    <meta name="author" content="Marissa Wood">
+    <meta name="keywords" content="blog post, feature flags, software development, deployment process">
+</head>
+
+<body>
+    <div class="blog-header--posts">
+        <h1 class="blog-banner-title"><a href="/blog">Marissa Would...</a></h1>
+    </div>
+
+    <div class="blog-post">
+        <div class="blog-post__info">CODE / September 17, 2021</div>
+        <h2 class="blog-post__title">Feature Flags! What are they and why should you care?</h2>
+        <p class="blog-post__paragraph">
+            Recently at Mariana Tek, we started using feature flags in our development process.  This was a brand new concept for me and I want to share what I learned and why I think more companies should use them.
+        </p>
+        <h3 class="blog-post__sub-title">
+            So, first of all, what the heck is a feature flag?
+        </h3>
+        <p class="blog-post__paragraph">
+            A feature flag is a software development technique used to toggle functionality outside of the deployment process.  The feature flagging is written into your code and each named flag can be toggled on or off in an environment that is separate from your code pipeline. The simplest version is to return 'on' in order to show a new feature and 'off' to keep displaying the old version or nothing at all.
+        </p>
+        <p class="blog-post__paragraph">
+            More complicated set ups can return different values and even more configuration.  Feature flagging tools can allow you to target specific users or groups of users to serve different values.
+        </p>
+        <h3 class="blog-post__sub-title">
+            What are feature flags used for?
+        </h3>
+        <p class="blog-post__paragraph">
+            Feature flags can be used for many reasons. The main reason we started using them on my team is to move away from feature branches.  When a new feature requires a lot of small changes all across the app that can't be released until they are all done, we used to keep a feature branch around and then merge to main once everything was complete.  This can become a painful process the longer a feature branch is around due to increasing risk of conflicts.  Gating the new code behind a feature flag allows each incremental step to be merged to the main development branch and then the flag can be turned on once all the pieces are in place.  Feature flagging can also allow something called a <strong>canary release</strong> where you first release the feature out to 10-15% of users to see if its stable before releasing it out to the entire user base.  It can also allow you to instantly roll back if something goes wrong.
+        </p>
+        <p class="blog-post__paragraph">
+            Feature flagging can also allow you to experiment in production via A/B testing or toggle features on and off based on time of day or traffic.
+        </p>
+        <h3 class="blog-post__sub-title">
+            Considerations &#38 gotchas
+        </h3>
+        <p class="blog-post__paragraph">
+            Depending on how your team uses feature flags, it's important to think about the maintenance and clean up of feature flags so that the codebase doesn't become unecessarily convoluted.  Once a feature is turned on and stable and there aren't any plans to remove that feature or toggle it off, teh code can be simplified and the flag can be removed from whatever service you use to manage your flags.
+        </p>
+        <p class="blog-post__paragraph">
+            Another thing to remember when setting up feature flags is that whatever system you use to manage your flags can have failures and disruptions. A default or control treatment of the flags response should be a safe fallback and not trigger any errors or disruptions for your users.
+        </p>
+
+        <h3 class="blog-post__sub-title">
+            So what does this look like?
+        </h3>
+        <p class="blog-post__paragraph">
+            My team is using split.io to manage our feature flags right now.  the set up is different depening on what languages and frameworks you are using, and we have to add it separately to our front end and back end.  the examples below are used in an Ember.js application.
+        </p>
+
+        <p class="blog-post__paragraph">
+            Setup: connect to your feature flagging API
+        </p>
+
+        <p class="code-snippet__block">
+            import { SplitFactory } from '@splitsoftware/splitio';
+            <br>
+            ...
+            <br>
+            const factory = SplitFactory({
+            <br>
+            <span class="tab"></span>core: {
+            <br>
+            <span class="tab"></span><span class="tab"></span>authorizationKey: your_key_goes_here,
+            <br>
+            <span class="tab"></span>},
+            <br>
+            });
+            <br>
+            this.client = factory.client();
+        </p>
+    </div>
+
+</body>
+
+</html>
