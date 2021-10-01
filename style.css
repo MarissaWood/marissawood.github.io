@@ -231,6 +231,9 @@ body.minimized .first-container {
   opacity: 1;
 }
 
+.blog-link {
+  text-decoration: underline;
+}
 .blog-home p {
   line-height: 1.25;
 }
@@ -300,7 +303,7 @@ body.minimized .first-container {
 .blog-post {
   width: 70vw;
   max-width: 700px;
-  margin-top: 60px;
+  margin: 60px 0;
 }
 @media (max-width: 815px) {
   .blog-post {
@@ -337,9 +340,22 @@ body.minimized .first-container {
 .code-snippet__inline .comment, .code-snippet__block .comment {
   font-style: italic;
   color: #1DB954;
+  white-space: pre-wrap;
 }
-.code-snippet__inline .tab, .code-snippet__block .tab {
-  padding: 0 20px;
+.code-snippet__inline .pre-wrap, .code-snippet__block .pre-wrap {
+  white-space: pre-wrap;
+}
+.code-snippet__inline .tab-1, .code-snippet__block .tab-1 {
+  padding-left: 40px;
+}
+.code-snippet__inline .tab-2, .code-snippet__block .tab-2 {
+  padding-left: 80px;
+}
+.code-snippet__inline .tab-3, .code-snippet__block .tab-3 {
+  padding-left: 120px;
+}
+.code-snippet__inline .tab-4, .code-snippet__block .tab-4 {
+  padding-left: 160px;
 }
 .code-snippet__inline {
   border-radius: 3px;
