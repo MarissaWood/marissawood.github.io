@@ -231,6 +231,9 @@ body.minimized .first-container {
   opacity: 1;
 }
 
+.blog-link {
+  text-decoration: underline;
+}
 .blog-home p {
   line-height: 1.25;
 }

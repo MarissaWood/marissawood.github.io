@@ -272,6 +272,10 @@ ul {
 
 
 .blog {
+    &-link {
+        text-decoration: underline;
+    }
+
     &-home {
         p {
             line-height: 1.25;
