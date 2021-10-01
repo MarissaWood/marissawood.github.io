@@ -64,7 +64,7 @@
         </p>
 
         <p class="blog-post__paragraph">
-            Setup: connect to your feature flagging API
+            Setup: connect to your feature flagging API.  Split has localhost mode to use when locally developing if you don't have internet connection or just don't want to communicate with the actual client.  When using localhost mode, you can pass in the responses for that flags you are using.
         </p>
 
         <p class="code-snippet__block">
@@ -74,11 +74,33 @@
             <br>
             const factory = SplitFactory({
             <br>
-            <span class="tab"></span>core: {
+            <span class="tab-1"></span>core: {
             <br>
-            <span class="tab"></span><span class="tab"></span>authorizationKey: your_key_goes_here,
+            <span class="tab-2"></span>authorizationKey: your_key_goes_here || 'localhost',
             <br>
-            <span class="tab"></span>},
+            <span class="tab-1"></span>},
+            <br>
+            <span class="tab-2"></span><span class="comment">// for local dev, uncomment the following</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">// features: {</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">//     split_1: 'on',</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">//     split_2: {</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">//         treatment: 'off',</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">//         config: '{ "color": "blue" }',</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">//     },</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">// },</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">// scheduler: {</span>
+            <br>
+            <span class="tab-2"><span class="comment">//     offlineRefreshRate: 15,</span>
+            <br>
+            <span class="tab-2"></span><span class="comment">// },</span>
             <br>
             });
             <br>

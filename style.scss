@@ -386,10 +386,16 @@ ul {
         .comment {
             font-style: italic;
             color:#1DB954;
+            white-space: pre-wrap;
         }
 
-        .tab {
-            padding: 0 20px;
+        $nums: 1, 2, 3, 4;
+
+        @each $num in $nums {
+            .tab-#{$num} {
+                padding-left: 40px*$num;
+
+            }
         }
     }
 
