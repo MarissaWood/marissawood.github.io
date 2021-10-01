@@ -300,7 +300,7 @@ body.minimized .first-container {
 .blog-post {
   width: 70vw;
   max-width: 700px;
-  margin-top: 60px;
+  margin: 60px 0;
 }
 @media (max-width: 815px) {
   .blog-post {
@@ -337,6 +337,9 @@ body.minimized .first-container {
 .code-snippet__inline .comment, .code-snippet__block .comment {
   font-style: italic;
   color: #1DB954;
+  white-space: pre-wrap;
+}
+.code-snippet__inline .pre-wrap, .code-snippet__block .pre-wrap {
   white-space: pre-wrap;
 }
 .code-snippet__inline .tab-1, .code-snippet__block .tab-1 {

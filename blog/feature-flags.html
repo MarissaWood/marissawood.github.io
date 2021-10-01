@@ -23,7 +23,7 @@
     </div>
 
     <div class="blog-post">
-        <div class="blog-post__info">CODE / September 17, 2021</div>
+        <div class="blog-post__info">CODE / October 1, 2021</div>
         <h2 class="blog-post__title">Feature Flags! What are they and why should you care?</h2>
         <p class="blog-post__paragraph">
             Recently at Mariana Tek, we started using feature flags in our development process.  This was a brand new concept for me and I want to share what I learned and why I think more companies should use them.
@@ -50,7 +50,7 @@
             Considerations &#38 gotchas
         </h3>
         <p class="blog-post__paragraph">
-            Depending on how your team uses feature flags, it's important to think about the maintenance and clean up of feature flags so that the codebase doesn't become unecessarily convoluted.  Once a feature is turned on and stable and there aren't any plans to remove that feature or toggle it off, teh code can be simplified and the flag can be removed from whatever service you use to manage your flags.
+            Depending on how your team uses feature flags, it's important to think about the maintenance and clean up of feature flags so that the codebase doesn't become unecessarily convoluted.  Once a feature is turned on and stable and there aren't any plans to remove that feature or toggle it off, the code can be simplified and the flag can be removed from whatever service you use to manage your flags.
         </p>
         <p class="blog-post__paragraph">
             Another thing to remember when setting up feature flags is that whatever system you use to manage your flags can have failures and disruptions. A default or control treatment of the flags response should be a safe fallback and not trigger any errors or disruptions for your users.
@@ -60,11 +60,15 @@
             So what does this look like?
         </h3>
         <p class="blog-post__paragraph">
-            My team is using split.io to manage our feature flags right now.  the set up is different depening on what languages and frameworks you are using, and we have to add it separately to our front end and back end.  the examples below are used in an Ember.js application.
+            My team is using split.io to manage our feature flags right now.  The set up is different depening on what languages and frameworks you are using, and we have to add it separately to our front end and back end.  The examples below are used in an Ember.js application.
         </p>
 
+
+        <h4 class="blog-post__sub-title">
+            Setup:
+        </h4>
         <p class="blog-post__paragraph">
-            Setup: connect to your feature flagging API.  Split has localhost mode to use when locally developing if you don't have internet connection or just don't want to communicate with the actual client.  When using localhost mode, you can pass in the responses for that flags you are using.
+            Connect to your feature flagging API with your key.  We save it as an environment variable and import it in. If the variable is undefined, we use localhost mode as a fallback for local dev. This is useful when you don't have internet connection or just don't want to communicate with the actual client while working on your code.  When using localhost mode, you can pass in the desired responses for that flags you are using.  In our Ember application, we saved the client in a service so we can import it anywhere we need it.
         </p>
 
         <p class="code-snippet__block">
@@ -80,31 +84,65 @@
             <br>
             <span class="tab-1"></span>},
             <br>
-            <span class="tab-2"></span><span class="comment">// for local dev, uncomment the following</span>
+            <span class="tab-1"></span><span class="comment">// for local dev, uncomment the following</span>
             <br>
-            <span class="tab-2"></span><span class="comment">// features: {</span>
+            <span class="tab-1"></span><span class="comment">// features: {</span>
             <br>
-            <span class="tab-2"></span><span class="comment">//     split_1: 'on',</span>
+            <span class="tab-1"></span><span class="comment">//     split_1: 'on',</span>
             <br>
-            <span class="tab-2"></span><span class="comment">//     split_2: {</span>
+            <span class="tab-1"></span><span class="comment">//     split_2: {</span>
             <br>
-            <span class="tab-2"></span><span class="comment">//         treatment: 'off',</span>
+            <span class="tab-1"></span><span class="comment">//         treatment: 'off',</span>
             <br>
-            <span class="tab-2"></span><span class="comment">//         config: '{ "color": "blue" }',</span>
+            <span class="tab-1"></span><span class="comment">//         config: '{ "color": "blue" }',</span>
             <br>
-            <span class="tab-2"></span><span class="comment">//     },</span>
+            <span class="tab-1"></span><span class="comment">//     },</span>
             <br>
-            <span class="tab-2"></span><span class="comment">// },</span>
+            <span class="tab-1"></span><span class="comment">// },</span>
             <br>
-            <span class="tab-2"></span><span class="comment">// scheduler: {</span>
+            <span class="tab-1"></span><span class="comment">// scheduler: {</span>
             <br>
-            <span class="tab-2"><span class="comment">//     offlineRefreshRate: 15,</span>
+            <span class="tab-1"><span class="comment">//     offlineRefreshRate: 15,</span>
             <br>
-            <span class="tab-2"></span><span class="comment">// },</span>
+            <span class="tab-1"></span><span class="comment">// },</span>
             <br>
             });
             <br>
             this.client = factory.client();
+        </p>
+
+        <h4 class="blog-post__sub-title">
+            Usage:
+        </h3>
+        <p class="blog-post__paragraph">
+            The pattern we use for feature flags in our application (for now) is setting up flags to return 'on' or 'off'.  Our application passes along some user information so that we can set up special targeting rules for releasing features to small groups earlier than everyone else.  In our javascript files we get the treatment from the client and save it to some variable.  If the treatment equals 'on' we conditionally render something on a template file.
+        </p>
+
+        <p class="code-snippet__block">
+            <span class="comment">// in a controller.js or route.js file:</span>
+            <br>
+            const splitTreatment = this.client.getTreatment('my-flag', {
+            <br>
+                <span class="tab-1"></span><span class="comment">// add user info here for targeting</span>
+                <br>
+                <span class="tab-1"></span>email: 'user@email.com'
+                <br>
+            });
+            <br>
+            treatmentIsOn = splitTreatment ==='on'
+        </p>
+        <p class="code-snippet__block">
+            <span class="comment">// in a template.hbs file:</span>
+            <br>
+            {{#if this.treatmentIsOn}}
+            <br>
+            <span class="tab-1 comment">{{!-- some new stuff -}}</span>
+            <br>
+            {{else}}
+            <br>
+            <span class="tab-1 comment">{{!-- the old code (if we have any) --}}</span>
+            <br>
+            {{/if}}
         </p>
     </div>
 

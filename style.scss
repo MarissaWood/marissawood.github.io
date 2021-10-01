@@ -347,7 +347,7 @@ ul {
     &-post {
         width: 70vw;
         max-width: 700px;
-        margin-top: 60px;
+        margin: 60px 0;
 
         @media (max-width: 815px) {
             width: calc(100% - 50px);
@@ -386,6 +386,10 @@ ul {
         .comment {
             font-style: italic;
             color:#1DB954;
+            white-space: pre-wrap;
+        }
+
+        .pre-wrap {
             white-space: pre-wrap;
         }
 
