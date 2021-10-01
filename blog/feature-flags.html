@@ -32,16 +32,16 @@
             So, first of all, what the heck is a feature flag?
         </h3>
         <p class="blog-post__paragraph">
-            A feature flag is a software development technique used to toggle functionality outside of the deployment process.  The feature flagging is written into your code and each named flag can be toggled on or off in an environment that is separate from your code pipeline. The simplest version is to return 'on' in order to show a new feature and 'off' to keep displaying the old version or nothing at all.
+            A feature flag is a software development technique used to toggle functionality outside of the deployment process.  The feature flagging is written into your code and each named flag can be toggled on or off in an environment that is separate from your code pipeline. The simplest version is to return 'on' to show a new feature and 'off' to keep displaying the old version or nothing at all.
         </p>
         <p class="blog-post__paragraph">
-            More complicated set ups can return different values and even more configuration.  Feature flagging tools can allow you to target specific users or groups of users to serve different values.
+            More complicated setups can return different values and even more configurations.  Feature flagging tools can allow you to target specific users or groups of users to serve different values.
         </p>
         <h3 class="blog-post__sub-title">
             What are feature flags used for?
         </h3>
         <p class="blog-post__paragraph">
-            Feature flags can be used for many reasons. The main reason we started using them on my team is to move away from feature branches.  When a new feature requires a lot of small changes all across the app that can't be released until they are all done, we used to keep a feature branch around and then merge to main once everything was complete.  This can become a painful process the longer a feature branch is around due to increasing risk of conflicts.  Gating the new code behind a feature flag allows each incremental step to be merged to the main development branch and then the flag can be turned on once all the pieces are in place.  Feature flagging can also allow something called a <strong>canary release</strong> where you first release the feature out to 10-15% of users to see if its stable before releasing it out to the entire user base.  It can also allow you to instantly roll back if something goes wrong.
+            Feature flags can be used for many reasons. The main reason we started using them on my team is to move away from feature branches.  When a new feature requires a lot of small changes all across the app that can't be released until they are all done, we used to keep a feature branch around and then merge to main once everything was complete.  This can become a painful process the longer a feature branch is around due to the increased risk of conflicts.  Gating the new code behind a feature flag allows each incremental step to be merged to the main development branch and then the flag can be turned on once all the pieces are in place.  Feature flagging can also allow something called a <strong>canary release</strong> where you first release the feature out to 10-15% of users to see if it's stable before releasing it out to the entire user base.  It can also allow you to instantly roll back if something goes wrong.
         </p>
         <p class="blog-post__paragraph">
             Feature flagging can also allow you to experiment in production via A/B testing or toggle features on and off based on time of day or traffic.
@@ -50,7 +50,7 @@
             Considerations &#38 gotchas
         </h3>
         <p class="blog-post__paragraph">
-            Depending on how your team uses feature flags, it's important to think about the maintenance and clean up of feature flags so that the codebase doesn't become unecessarily convoluted.  Once a feature is turned on and stable and there aren't any plans to remove that feature or toggle it off, the code can be simplified and the flag can be removed from whatever service you use to manage your flags.
+            Depending on how your team uses feature flags, it's important to think about the maintenance and-up of feature flags so that the codebase doesn't become unnecessarily convoluted.  Once a feature is turned on and stable and there aren't any plans to remove that feature or toggle it off, the code can be simplified and the flag can be removed from whatever service you use to manage your flags.
         </p>
         <p class="blog-post__paragraph">
             Another thing to remember when setting up feature flags is that whatever system you use to manage your flags can have failures and disruptions. A default or control treatment of the flags response should be a safe fallback and not trigger any errors or disruptions for your users.
@@ -60,7 +60,7 @@
             So what does this look like?
         </h3>
         <p class="blog-post__paragraph">
-            My team is using split.io to manage our feature flags right now.  The set up is different depening on what languages and frameworks you are using, and we have to add it separately to our front end and back end.  The examples below are used in an Ember.js application.
+            My team is using split.io<sup>1</sup> to manage our feature flags right now.  The setup is different depending on what languages and frameworks you are using, and we have to add it separately to our front end and back end.  The examples below are used in an Ember.js application.
         </p>
 
 
@@ -68,7 +68,7 @@
             Setup:
         </h4>
         <p class="blog-post__paragraph">
-            Connect to your feature flagging API with your key.  We save it as an environment variable and import it in. If the variable is undefined, we use localhost mode as a fallback for local dev. This is useful when you don't have internet connection or just don't want to communicate with the actual client while working on your code.  When using localhost mode, you can pass in the desired responses for that flags you are using.  In our Ember application, we saved the client in a service so we can import it anywhere we need it.
+            Connect to your feature flagging API with your key.  We save it as an environment variable and import it in. If the variable is undefined, we use localhost mode as a fallback for local dev. This is useful when you don't have an internet connection or just don't want to communicate with the actual client while working on your code.  When using localhost mode, you can pass in the desired responses for the flags you are using.  In our Ember application, we saved the client in a service so we can import it anywhere we need it.
         </p>
 
         <p class="code-snippet__block">
@@ -115,7 +115,7 @@
             Usage:
         </h3>
         <p class="blog-post__paragraph">
-            The pattern we use for feature flags in our application (for now) is setting up flags to return 'on' or 'off'.  Our application passes along some user information so that we can set up special targeting rules for releasing features to small groups earlier than everyone else.  In our javascript files we get the treatment from the client and save it to some variable.  If the treatment equals 'on' we conditionally render something on a template file.
+            The pattern we use for feature flags in our application (for now) is setting up flags to return 'on' or 'off'.  Our application passes along some user information so that we can set up special targeting rules for releasing features to small groups earlier than everyone else.  In our javascript files, we get the treatment from the client and save it to some variable.  If the treatment equals 'on' we conditionally render something on a template file.
         </p>
 
         <p class="code-snippet__block">
@@ -144,8 +144,11 @@
             <br>
             {{/if}}
         </p>
+        <section class="notes">
+            <p>
+                <sup>1</sup> You can find the detailed docs for split.io implementation <a href="https://help.split.io/hc/en-us/articles/360020448791-JavaScript-SDK" target="_blank" class="blog-link">here</a>
+            </p>
+        </section>
     </div>
-
 </body>
-
 </html>
