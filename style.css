@@ -318,6 +318,16 @@ body.minimized .first-container {
 .blog-post p {
   line-height: 1.5;
 }
+.blog-post__image {
+  width: 100%;
+}
+.blog-post__image-caption {
+  text-align: center;
+}
+.blog-post__math {
+  font-size: 2em;
+  text-align: center;
+}
 
 .tag-1 {
   background: black;

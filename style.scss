@@ -362,6 +362,19 @@ ul {
         p {
             line-height: 1.5;
         }
+
+        &__image {
+            width: 100%;
+
+            &-caption {
+                text-align: center;
+            }
+        }
+
+        &__math {
+            font-size: 2em;
+            text-align: center;
+        }
     }
 }
 

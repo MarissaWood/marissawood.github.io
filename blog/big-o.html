@@ -55,7 +55,7 @@
             Time Complexity and Space Complexity
         </h3>
         <p class="blog-post__paragraph">
-            When discussing the complexity of code, there are two times, time and space.  Most of the time we are discussing the time complexity because that has the biggest impact to the end user of our software.
+            When discussing the complexity of code, there are two types, time and space.  Most of the time we are discussing the time complexity because that has the biggest impact to the end user of our software.
         </p>
         <h3 class="blog-post__sub-title">
             Some Examples
@@ -63,12 +63,27 @@
         <p class="blog-post__paragraph">
             --
         </p>
+        <img class="blog-post__image" alt="" src="../images/big-o-complexity-chart.png">
+        <p class="blog-post__image-caption"><a href="https://www.bigocheatsheet.com/">https://www.bigocheatsheet.com/</a></p>
+        <p class="blog-post__paragraph">
+            --
+        </p>
         <h3 class="blog-post__sub-title">
             What is a Logarithm?
         </h3>
         <p class="blog-post__paragraph">
-            --
+            Sometime Big O expressions include logarithms. Log is basically the inverse of of exponents.
         </p>
+        <section class="blog-post__math">
+            2<sup>3</sup> = 8
+            <br>
+            log<sub>2</sub>8 = 3
+
+        </section>
+        <p class="blog-post__paragraph">
+            O(log N) basically means time goes up linearly while the N goes up exponentially. So if it takes 1 second to compute 10 elements, it will take 2 seconds to compute 100 elements, 3 seconds to compute 1000 elements, and so on.<sup>1</sup>
+        </p>
+
         <h3 class="blog-post__sub-title">
             Summary
         </h3>
@@ -79,9 +94,15 @@
             Resources
         </h3>
         <p class="blog-post__paragraph">
-            --
+            <a href="https://www.bigocheatsheet.com/">https://www.bigocheatsheet.com/</a>
         </p>
     </div>
+
+    <section class="notes">
+        <p>
+            <sup>1</sup> <a href="https://stackoverflow.com/a/2307330/13989697">https://stackoverflow.com/a/2307330/13989697</a>
+        </p>
+    </section>
 
 </body>
 
